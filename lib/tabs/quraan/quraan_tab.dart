@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_islamic/tabs/quraan/sura_details_screen.dart';
 
 class QuraanTab extends StatelessWidget {
   List<String> suraNames = [
@@ -120,12 +121,43 @@ class QuraanTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/images/default_bg.png'),
+    return Column(
+      children: [
+        Image.asset(
+          'assets/images/quraan_header.png',
+          height: MediaQuery.sizeOf(context).height * 0.25,
         ),
-      ),
+        SizedBox(
+          height: 16,
+        ),
+        Expanded(
+          child: ListView.separated(
+            separatorBuilder: (context, index) => SizedBox(
+              height: 12,
+            ),
+            itemCount: suraNames.length,
+            itemBuilder: (context, index) => GestureDetector(
+              onTap: () {
+                Navigator.of(context).pushNamed(SuraDetailsScreen.routeName,
+                    arguments: SuraDetailsArguments(
+                        SuraName: suraNames[index], index: index));
+              },
+              child: Text(
+                suraNames[index],
+                style: Theme.of(context).textTheme.headlineSmall,
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+        )
+      ],
     );
   }
+}
+
+class SuraDetailsArguments {
+  String SuraName;
+  int index;
+
+  SuraDetailsArguments({required this.SuraName, required this.index});
 }

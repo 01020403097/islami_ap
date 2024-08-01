@@ -30,6 +30,10 @@ class _HomeScreenState extends State<HomeScreen> {
           image: DecorationImage(
               image: AssetImage('assets/images/default_bg.png'))),
       child: Scaffold(
+        appBar: AppBar(
+          title: Text('إسلامي'),
+
+        ),
         backgroundColor: Colors.transparent,
         body: tabScreens[currentIndex],
         bottomNavigationBar: BottomNavigationBar(
