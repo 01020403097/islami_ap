@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:new_islamic/providers/setting_provider.dart';
 import 'package:new_islamic/tabs/hadeth/hadeth_tab.dart';
 import 'package:new_islamic/tabs/quraan/quraan_tab.dart';
 import 'package:new_islamic/tabs/radio/radio_tab.dart';
 import 'package:new_islamic/tabs/sebha/sebha_tab.dart';
 import 'package:new_islamic/tabs/settings/settings.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routScreen = 'routeScreen';
@@ -25,14 +27,19 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SettingProvider settingProvider = Provider.of<SettingProvider>(context);
+
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/images/default_bg.png'))),
+              image: AssetImage(
+
+                  settingProvider.backGroundImageName),
+
+          ),),
       child: Scaffold(
         appBar: AppBar(
           title: Text('إسلامي'),
-
         ),
         backgroundColor: Colors.transparent,
         body: tabScreens[currentIndex],

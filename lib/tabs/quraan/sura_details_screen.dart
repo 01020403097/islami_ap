@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:new_islamic/providers/setting_provider.dart';
 import 'package:new_islamic/style/app_theme.dart';
 import 'package:new_islamic/tabs/quraan/quraan_tab.dart';
+import 'package:provider/provider.dart';
 
 import '../../widgets/loading_indicator.dart';
 
@@ -18,12 +20,13 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SettingProvider settingProvider=Provider.of<SettingProvider>(context);
     args = ModalRoute.of(context)!.settings.arguments as SuraDetailsArguments;
   if(ayat.isEmpty){  loadSuraFile();}
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/default_bg.png'),
+          image: AssetImage( settingProvider.backGroundImageName),
         ),
       ),
       child: Scaffold(
@@ -36,7 +39,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
               vertical: MediaQuery.sizeOf(context).height * 0.06,
               horizontal: MediaQuery.sizeOf(context).width * 0.07),
           decoration: BoxDecoration(
-              color: AppTheme.white, borderRadius: BorderRadius.circular(25)),
+              color: settingProvider.isDark?AppTheme.darkPrimary:AppTheme.white, borderRadius: BorderRadius.circular(25)),
           child: ayat.isEmpty?LoadingIndicator():ListView.builder(
             itemCount: ayat.length,
             itemBuilder: (context, index) => Text(
