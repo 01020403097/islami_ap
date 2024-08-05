@@ -49,7 +49,11 @@ class Settings extends StatelessWidget {
               
               DropdownButtonHideUnderline(
                 child: DropdownButton<String>(
-                  dropdownColor: AppTheme.white,
+                  dropdownColor: settingProvider.isDark ? AppTheme
+                      .gold : AppTheme.white,
+                  style: TextStyle(color: settingProvider.isDark ? AppTheme
+                      .white : AppTheme.darkPrimary,),
+
                   borderRadius: BorderRadius.circular(25),
                   value: settingProvider.language,
                   items: [

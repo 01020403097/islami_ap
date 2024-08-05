@@ -6,6 +6,7 @@ import 'package:new_islamic/tabs/radio/radio_tab.dart';
 import 'package:new_islamic/tabs/sebha/sebha_tab.dart';
 import 'package:new_islamic/tabs/settings/settings.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routScreen = 'routeScreen';
@@ -39,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),),
       child: Scaffold(
         appBar: AppBar(
-          title: Text('إسلامي'),
+          title: Text(AppLocalizations.of(context)!.islami),
         ),
         backgroundColor: Colors.transparent,
         body: tabScreens[currentIndex],
