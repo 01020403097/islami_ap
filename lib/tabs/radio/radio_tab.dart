@@ -28,7 +28,7 @@ class RadioTab extends StatelessWidget {
         ),
         SizedBox(
           height: MediaQuery.sizeOf(context).height * 0.18,
-          child: Row(
+          child: Row(textDirection:TextDirection.ltr ,
             children: [
               Expanded(child: GestureDetector(
                   onTap: () {},

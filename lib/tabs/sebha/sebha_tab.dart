@@ -20,7 +20,7 @@ class _SebhaTabState extends State<SebhaTab> {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsetsDirectional.only(top: 32),
+          padding: EdgeInsetsDirectional.only(top: MediaQuery.sizeOf(context).height * 0.03),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -31,8 +31,8 @@ class _SebhaTabState extends State<SebhaTab> {
                 child: Image.asset(
                   sebhaProv.backGroundSebhaMode,
                   alignment: Alignment.center,
-                  height: 232,
-                  width: 234,
+                  height: MediaQuery.sizeOf(context).height * 0.3,
+
                 ),
               ),
             ],
@@ -45,13 +45,13 @@ class _SebhaTabState extends State<SebhaTab> {
           ),
         ),
         Container(
-          height: 80,
-          width: 70,
-          margin: EdgeInsetsDirectional.all(20),
-          padding: EdgeInsetsDirectional.all(20),
+          height:  MediaQuery.sizeOf(context).height * 0.09,
+          width:  MediaQuery.sizeOf(context).width * 0.17,
+          margin: EdgeInsetsDirectional.all( MediaQuery.sizeOf(context).height * 0.022),
+          padding: EdgeInsetsDirectional.all( MediaQuery.sizeOf(context).height * 0.022),
           decoration: BoxDecoration(
             color: settingProvider.isDark ? AppTheme.darkPrimary : AppTheme.lightPrimary,
-            borderRadius: BorderRadiusDirectional.circular(15),
+            borderRadius: BorderRadiusDirectional.circular( MediaQuery.sizeOf(context).height * 0.022),
           ),
           child: Center(
             child: Text(
@@ -64,11 +64,11 @@ class _SebhaTabState extends State<SebhaTab> {
         ),
         Container(
           width: 140,
-          margin: EdgeInsetsDirectional.all(15),
-          padding: EdgeInsetsDirectional.all(10),
+          margin: EdgeInsetsDirectional.all( MediaQuery.sizeOf(context).height * 0.022),
+          padding: EdgeInsetsDirectional.all( MediaQuery.sizeOf(context).height * 0.013),
           decoration: BoxDecoration(
             color: settingProvider.isDark ? AppTheme.gold : AppTheme.lightPrimary,
-            borderRadius: BorderRadiusDirectional.circular(30),
+            borderRadius: BorderRadiusDirectional.circular( MediaQuery.sizeOf(context).height * 0.03),
           ),
           child: Center(
             child: Text(

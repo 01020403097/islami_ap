@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:new_islamic/style/app_theme.dart';
 import 'package:provider/provider.dart';
-
 import '../../providers/setting_provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class Settings extends StatelessWidget {
   const Settings({super.key});
@@ -14,12 +15,13 @@ class Settings extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.0),
+          padding: EdgeInsets.symmetric(horizontal: MediaQuery.sizeOf(context).width * 0.052),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Dark Mode',
+              AppLocalizations.of(context)!.darkMode
+              ,
                 style: Theme.of(context)
                     .textTheme
                     .headlineSmall
@@ -35,12 +37,11 @@ class Settings extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal:20.0,vertical: 15),
+          padding:  EdgeInsets.symmetric(horizontal: MediaQuery.sizeOf(context).width * 0.052,vertical:  MediaQuery.sizeOf(context).height * 0.02),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'Language',
+              Text(AppLocalizations.of(context)!.language,
                 style: Theme.of(context)
                     .textTheme
                     .headlineSmall
@@ -54,7 +55,7 @@ class Settings extends StatelessWidget {
                   style: TextStyle(color: settingProvider.isDark ? AppTheme
                       .white : AppTheme.darkPrimary,),
 
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: BorderRadius.circular( MediaQuery.sizeOf(context).height * 0.025),
                   value: settingProvider.language,
                   items: [
                     DropdownMenuItem(

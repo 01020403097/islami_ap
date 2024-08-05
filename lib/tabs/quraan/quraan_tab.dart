@@ -128,12 +128,12 @@ class QuraanTab extends StatelessWidget {
           height: MediaQuery.sizeOf(context).height * 0.25,
         ),
         SizedBox(
-          height: 16,
+          height: MediaQuery.sizeOf(context).height * 0.025,
         ),
         Expanded(
           child: ListView.separated(
             separatorBuilder: (context, index) => SizedBox(
-              height: 12,
+              height: MediaQuery.sizeOf(context).height * 0.013,
             ),
             itemCount: suraNames.length,
             itemBuilder: (context, index) => GestureDetector(

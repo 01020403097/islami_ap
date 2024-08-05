@@ -34,12 +34,12 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
           title: Text(args.SuraName),
         ),
         body: Container(
-          padding: EdgeInsets.all(25),
+          padding: EdgeInsets.all(MediaQuery.sizeOf(context).height * 0.027),
           margin: EdgeInsets.symmetric(
               vertical: MediaQuery.sizeOf(context).height * 0.06,
               horizontal: MediaQuery.sizeOf(context).width * 0.07),
           decoration: BoxDecoration(
-              color: settingProvider.isDark?AppTheme.darkPrimary:AppTheme.white, borderRadius: BorderRadius.circular(25)),
+              color: settingProvider.isDark?AppTheme.darkPrimary:AppTheme.white, borderRadius: BorderRadius.circular(MediaQuery.sizeOf(context).height * 0.025)),
           child: ayat.isEmpty?LoadingIndicator():ListView.builder(
             itemCount: ayat.length,
             itemBuilder: (context, index) => Text(

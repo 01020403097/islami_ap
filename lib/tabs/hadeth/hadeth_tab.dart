@@ -23,12 +23,12 @@ class _HadethTabState extends State<HadethTab> {
           height: MediaQuery.sizeOf(context).height * 0.25,
         ),
         SizedBox(
-          height: 16,
+          height: MediaQuery.sizeOf(context).height * 0.025,
         ),
         Expanded(
           child:ahadeth.isEmpty?LoadingIndicator(): ListView.separated(
             separatorBuilder: (context, index) => SizedBox(
-              height: 12,
+              height: MediaQuery.sizeOf(context).height * 0.015,
             ),
             itemCount: ahadeth.length,
             itemBuilder: (context, index) => GestureDetector(

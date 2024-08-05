@@ -32,12 +32,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Container(
       decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(
-
-                  settingProvider.backGroundImageName),
-
-          ),),
+        image: DecorationImage(
+          image: AssetImage(settingProvider.backGroundImageName),
+        ),
+      ),
       child: Scaffold(
         appBar: AppBar(
           title: Text(AppLocalizations.of(context)!.islami),
@@ -46,29 +44,29 @@ class _HomeScreenState extends State<HomeScreen> {
         body: tabScreens[currentIndex],
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          items: const [
+          items:  [
             BottomNavigationBarItem(
                 icon: ImageIcon(
                   AssetImage('assets/images/moshaf_gold.png'),
                 ),
-                label: 'Quran'),
+                label: AppLocalizations.of(context)!.quran),
             BottomNavigationBarItem(
                 icon: ImageIcon(
                   AssetImage('assets/images/icon_hadeth.png'),
                 ),
-                label: 'hadeth'),
+                label: AppLocalizations.of(context)!.hadeth),
             BottomNavigationBarItem(
                 icon: ImageIcon(
                   AssetImage('assets/images/icon_sebha.png'),
                 ),
-                label: 'sebha'),
+                label: AppLocalizations.of(context)!.sebha),
             BottomNavigationBarItem(
                 icon: ImageIcon(
                   AssetImage('assets/images/icon_radio.png'),
                 ),
-                label: 'radio'),
+                label: AppLocalizations.of(context)!.radio),
             BottomNavigationBarItem(
-                icon: Icon(Icons.settings_outlined), label: 'settings'),
+                icon: Icon(Icons.settings_outlined), label: AppLocalizations.of(context)!.settings),
           ],
           currentIndex: currentIndex,
           onTap: (index) {
